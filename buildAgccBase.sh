@@ -5,10 +5,10 @@ Gitte="git.t2be.cn"
 AUUSER="aspnmy"
 imgNAME="apline-gcc"
 s6OverlayVer="3210"
-packageVer="alpine-3221"
+packageVer="3221"
 timeBuild=$(date +"%Y%m%d%H")
 #ver="${timeBuild}_s6_overlay_v${s6OverlayVer}_${debianVer}_BestHostsMonitor"
-stableVer="${timeBuild}-${imgNAME}-base-${packageVer}"
+stableVer="${timeBuild}-${imgNAME}-${packageVer}-base"
 
 # 构建镜像
 buildah bud --no-cache -f ./Dockerfile-apline-gcc-base -t $URI/$AUUSER/$imgNAME:$stableVer
