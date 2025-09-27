@@ -6,6 +6,6 @@ RUN apk update \
     && wget https://raw.githubusercontent.com/aspnmy/debian_ssh.s6-overlay/refs/heads/devbox/Dockerfile/app/bin/sshdInt.sh \
     && bash /app/setRootKey_Cli.sh superman\
     && chmod +x /app/sshdInt.sh \
+    && bash /app/sshdInt.sh start \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-CMD [ "/app/sshdInt.sh start" ]
