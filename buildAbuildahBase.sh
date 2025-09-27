@@ -23,18 +23,18 @@ buildah tag $URI/$AUUSER/$imgNAME:$stableVer $Gitte/$AUUSER/$imgNAME:$stableVer
 
 # 推送镜像逻辑
 if buildah push $URI/$AUUSER/$imgNAME:$stableVer; then
-    echo "Docker Hub推送成功"
+    echo "$URI 推送成功"
     if buildah push $GithubURI/$AUUSER/$imgNAME:$stableVer; then
-        echo "GitHub Container Registry推送成功"
+        echo "$GithubURI 推送成功"
     else
-        echo "GitHub Container Registry推送失败"
+        echo "$GithubURI 推送失败"
     fi
 elif buildah push $GithubURI/$AUUSER/$imgNAME:$stableVer; then
-    echo "Docker Hub推送失败，但GitHub Container Registry推送成功"
+    echo "$URI 推送失败，但$GithubURI 推送成功"
     if buildah push $Gitte/$AUUSER/$imgNAME:$stableVer; then
-        echo "Gitte Registry推送成功"
+        echo "$Gitte 推送成功"
     else
-        echo "Gitte Registry推送失败"
+        echo "$Gitte 推送失败"
     fi
 else
     echo "所有镜像仓库推送失败"
