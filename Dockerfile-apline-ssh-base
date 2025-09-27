@@ -6,4 +6,4 @@ RUN apk update \
     && bash /app/setRootKey_Cli.sh superman\
     && rm -rf /var/lib/apt/lists/*
 
-CMD [ "/app/Int.sh","start" ]
+CMD [ "/app/Int.sh start" ]
