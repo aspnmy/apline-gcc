@@ -1,7 +1,6 @@
 FROM alpine:3.22.1
 RUN apk update \
     && apk add --no-cache bash wget openssh-server \
-    && ssh-keygen -A \
     && mkdir -p app && cd app \
     && wget https://raw.githubusercontent.com/aspnmy/debian_ssh.s6-overlay/refs/heads/devbox/Dockerfile/app/bin/setRootKey_Cli.sh \
     && bash /app/setRootKey_Cli.sh superman\
