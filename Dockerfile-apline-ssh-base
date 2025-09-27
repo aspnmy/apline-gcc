@@ -8,4 +8,4 @@ RUN apk update \
     && chmod +x /app/sshdInt.sh \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-CMD [ "./sshdInt.sh start" ]
+CMD [ "/app/sshdInt.sh start" ]
