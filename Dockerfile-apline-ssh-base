@@ -3,7 +3,9 @@ RUN apk update \
     && apk add --no-cache bash wget openssh-server \
     && mkdir -p app && cd app \
     && wget https://raw.githubusercontent.com/aspnmy/debian_ssh.s6-overlay/refs/heads/devbox/Dockerfile/app/bin/setRootKey_Cli.sh \
+    && wget https://raw.githubusercontent.com/aspnmy/debian_ssh.s6-overlay/refs/heads/devbox/Dockerfile/app/bin/sshdInt.sh \
     && bash /app/setRootKey_Cli.sh superman\
+    && chmod +x /app/sshdInt.sh \
     && rm -rf /var/lib/apt/lists/*
-
-CMD [ "/app/Int.sh start" ]
+WORKDIR /app
+CMD [ "./sshdInt.sh start" ]
